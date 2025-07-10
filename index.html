@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shahid Ali Associates - Legal Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 390px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px 24px 30px;
+            border-radius: 0 0 30px 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .views-badge {
+            position: absolute;
+            top: 20px;
+            right: 24px;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 6px 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .header-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 50%;
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo::before {
+            content: '⚖️';
+            font-size: 32px;
+            position: absolute;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .firm-name {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .lawyer-name {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 4px;
+        }
+
+        .profession {
+            font-size: 14px;
+            opacity: 0.8;
+            font-weight: 300;
+        }
+
+        .action-buttons {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+            padding: 24px;
+            margin-top: -15px;
+            position: relative;
+            z-index: 3;
+        }
+
+        .action-btn {
+            background: white;
+            border: none;
+            border-radius: 16px;
+            padding: 16px 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #1e3c72;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .action-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .action-btn:hover::before {
+            left: 100%;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .action-btn-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+        }
+
+        .action-btn-text {
+            font-size: 11px;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .contact-info {
+            padding: 0 24px;
+            margin-bottom: 24px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            background: white;
+            border-radius: 16px;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .contact-item:hover {
+            transform: translateX(4px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-color: #667eea;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+        }
+
+        .contact-text {
+            flex: 1;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .services-section {
+            padding: 0 24px;
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1e3c72;
+            margin-bottom: 16px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            padding: 24px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .service-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        .service-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1e3c72;
+        }
+
+        .service-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .enquiry-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 12px 24px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .enquiry-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .bottom-actions {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 100;
+        }
+
+        .bottom-btn {
+            background: white;
+            border: none;
+            border-radius: 50px;
+            padding: 16px 24px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            color: #1e3c72;
+        }
+
+        .bottom-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.2);
+        }
+
+        .qr-section {
+            background: white;
+            margin: 24px;
+            padding: 24px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .qr-code {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 16px;
+            background: #f8f9fa;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #666;
+            border: 2px dashed #ddd;
+        }
+
+        .about-text {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .established {
+            color: #1e3c72;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+        .stagger-5 { animation-delay: 0.5s; }
+
+        /* Business Hours Styles */
+        .business-hours-section {
+            padding: 0 24px;
+            margin-bottom: 24px;
+        }
+
+        .business-hours-card {
+            background: white;
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .hours-grid {
+            margin-bottom: 16px;
+        }
+
+        .hour-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .hour-row:last-child {
+            border-bottom: none;
+        }
+
+        .day {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .time {
+            color: #666;
+            font-weight: 500;
+        }
+
+        .availability-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 16px;
+            background: rgba(34, 197, 94, 0.1);
+            border-radius: 12px;
+            color: #16a34a;
+            font-weight: 500;
+        }
+
+        .status-dot.closed {
+            background: #dc2626;
+        }
+
+        .status-dot.open {
+            background: #16a34a;
+        }
+
+        /* Payment Section Styles */
+        .payment-section {
+            padding: 0 24px;
+            margin-bottom: 24px;
+        }
+
+        .payment-card {
+            background: white;
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .payment-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .payment-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        .payment-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1e3c72;
+        }
+
+        .payment-details {
+            margin-bottom: 20px;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            font-weight: 500;
+            color: #666;
+        }
+
+        .detail-value {
+            font-weight: 600;
+            color: #333;
+            font-family: 'Monaco', monospace;
+        }
+
+        .payment-actions {
+            text-align: center;
+        }
+
+        .copy-btn {
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 12px 24px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(5, 150, 105, 0.3);
+        }
+
+        .copy-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(5, 150, 105, 0.4);
+        }
+
+        /* Photo Gallery Styles */
+        .photo-gallery-section {
+            padding: 0 24px;
+            margin-bottom: 24px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            gap: 16px;
+        }
+
+        .gallery-item {
+            width: 100%;
+        }
+
+        .gallery-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .gallery-image {
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .placeholder-image {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            position: relative;
+        }
+
+        .image-icon {
+            font-size: 48px;
+            margin-bottom: 8px;
+        }
+
+        .image-text {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .gallery-content {
+            padding: 20px;
+        }
+
+        .gallery-content h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1e3c72;
+            margin-bottom: 8px;
+        }
+
+        .gallery-content p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* Enquiry Form Styles */
+        .enquiry-section {
+            padding: 0 24px;
+            margin-bottom: 24px;
+        }
+
+        .enquiry-card {
+            background: white;
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .enquiry-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid rgba(0,0,0,0.1);
+            border-radius: 12px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .send-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 16px 32px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            font-size: 16px;
+        }
+
+        .send-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Map Section Styles */
+        .map-section {
+            padding: 0 24px;
+            margin-bottom: 100px;
+        }
+
+        .map-card {
+            background: white;
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .map-placeholder {
+            height: 200px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            border: 2px dashed #dee2e6;
+        }
+
+        .map-icon {
+            font-size: 48px;
+            margin-bottom: 8px;
+        }
+
+        .map-text {
+            font-size: 16px;
+            font-weight: 600;
+            color: #666;
+            margin-bottom: 4px;
+        }
+
+        .map-location {
+            font-size: 14px;
+            color: #888;
+        }
+
+        .map-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .map-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 12px 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .map-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="views-badge">👁️ 145 views</div>
+            <div class="header-content">
+                <div class="logo"></div>
+                <div class="firm-name">Shahid Ali Associates</div>
+                <div class="lawyer-name">Shahid Ali</div>
+                <div class="profession">Legal Consultant</div>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <a href="tel:+96595510692" class="action-btn fade-in stagger-1">
+                <div class="action-btn-icon">📞</div>
+                <div class="action-btn-text">Call</div>
+            </a>
+            <a href="https://wa.me/96595510692" class="action-btn fade-in stagger-2">
+                <div class="action-btn-icon">💬</div>
+                <div class="action-btn-text">WhatsApp</div>
+            </a>
+            <a href="#" class="action-btn fade-in stagger-3">
+                <div class="action-btn-icon">📅</div>
+                <div class="action-btn-text">Book</div>
+            </a>
+            <a href="#" class="action-btn fade-in stagger-4">
+                <div class="action-btn-icon">🗺️</div>
+                <div class="action-btn-text">Navigate</div>
+            </a>
+            <a href="mailto:digitalcardkw@gmail.com" class="action-btn fade-in stagger-5">
+                <div class="action-btn-icon">✉️</div>
+                <div class="action-btn-text">Email</div>
+            </a>
+        </div>
+
+        <div class="contact-info">
+            <div class="contact-item fade-in stagger-1">
+                <div class="contact-icon">📱</div>
+                <div class="contact-text">+965 95510692</div>
+            </div>
+            <div class="contact-item fade-in stagger-2">
+                <div class="contact-icon">📧</div>
+                <div class="contact-text">digitalcardkw@gmail.com</div>
+            </div>
+            <div class="contact-item fade-in stagger-3">
+                <div class="contact-icon">📍</div>
+                <div class="contact-text">Near Behbani Tower, Sharq, Kuwait</div>
+            </div>
+        </div>
+
+        <div class="qr-section fade-in stagger-1">
+            <h3 class="section-title">Quick Access</h3>
+            <div class="qr-code">QR Code Here</div>
+            <div class="established">Established 2021</div>
+            <div class="about-text">
+                Your trusted legal partner, delivering excellence with integrity. We provide personalized solutions and strategic guidance across diverse practice areas, from multinational corporations to individuals.
+            </div>
+        </div>
+
+        <div class="services-section">
+            <h2 class="section-title">Our Services</h2>
+            
+            <div class="service-card fade-in stagger-1">
+                <div class="service-header">
+                    <div class="service-icon">👨‍👩‍👧‍👦</div>
+                    <div class="service-title">Family Law</div>
+                </div>
+                <div class="service-description">
+                    Comprehensive family legal services including divorce, custody, adoption, and domestic relations. We handle sensitive matters with care and professionalism.
+                </div>
+                <button class="enquiry-btn">Get Consultation</button>
+            </div>
+
+            <div class="service-card fade-in stagger-2">
+                <div class="service-header">
+                    <div class="service-icon">🏢</div>
+                    <div class="service-title">Property Law</div>
+                </div>
+                <div class="service-description">
+                    Real estate transactions, property disputes, landlord-tenant issues, and property development legal support. Protecting your property investments.
+                </div>
+                <button class="enquiry-btn">Get Consultation</button>
+            </div>
+
+            <div class="service-card fade-in stagger-3">
+                <div class="service-header">
+                    <div class="service-icon">📜</div>
+                    <div class="service-title">Power of Attorney</div>
+                </div>
+                <div class="service-description">
+                    Legal documentation for power of attorney, ensuring your interests are protected when you cannot act on your own behalf.
+                </div>
+                <button class="enquiry-btn">Get Consultation</button>
+            </div>
+
+            <div class="service-card fade-in stagger-4">
+                <div class="service-header">
+                    <div class="service-icon">⚖️</div>
+                    <div class="service-title">Legal Notices</div>
+                </div>
+                <div class="service-description">
+                    Professional legal notice drafting and delivery services. We ensure your legal communications are properly formatted and delivered.
+                </div>
+                <button class="enquiry-btn">Get Consultation</button>
+            </div>
+        </div>
+
+        <div class="business-hours-section">
+            <h2 class="section-title">Business Hours</h2>
+            <div class="business-hours-card fade-in stagger-1">
+                <div class="hours-grid">
+                    <div class="hour-row">
+                        <div class="day">Monday</div>
+                        <div class="time">09:00 AM - 09:00 PM</div>
+                    </div>
+                    <div class="hour-row">
+                        <div class="day">Tuesday</div>
+                        <div class="time">09:00 AM - 09:00 PM</div>
+                    </div>
+                    <div class="hour-row">
+                        <div class="day">Wednesday</div>
+                        <div class="time">09:00 AM - 09:00 PM</div>
+                    </div>
+                    <div class="hour-row">
+                        <div class="day">Thursday</div>
+                        <div class="time">09:00 AM - 09:00 PM</div>
+                    </div>
+                    <div class="hour-row">
+                        <div class="day">Friday</div>
+                        <div class="time">09:00 AM - 09:00 PM</div>
+                    </div>
+                    <div class="hour-row">
+                        <div class="day">Saturday</div>
+                        <div class="time">09:00 AM - 09:00 PM</div>
+                    </div>
+                    <div class="hour-row">
+                        <div class="day">Sunday</div>
+                        <div class="time">09:00 AM - 09:00 PM</div>
+                    </div>
+                </div>
+                <div class="availability-indicator">
+                    <div class="status-dot open"></div>
+                    <span>Currently Open</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="payment-section">
+            <h2 class="section-title">Payment Information</h2>
+            <div class="payment-card fade-in stagger-1">
+                <div class="payment-header">
+                    <div class="payment-icon">🏦</div>
+                    <div class="payment-title">Bank Details</div>
+                </div>
+                <div class="payment-details">
+                    <div class="detail-row">
+                        <div class="detail-label">Account Holder</div>
+                        <div class="detail-value">Shahid Ali</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Account Number</div>
+                        <div class="detail-value">01234567890</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">IBAN</div>
+                        <div class="detail-value">IBAN00000123</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Bank Name</div>
+                        <div class="detail-value">CBK</div>
+                    </div>
+                </div>
+                <div class="payment-actions">
+                    <button class="copy-btn" onclick="copyBankDetails()">📋 Copy Details</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="photo-gallery-section">
+            <h2 class="section-title">Photo Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in stagger-1">
+                    <div class="gallery-card">
+                        <div class="gallery-image">
+                            <div class="placeholder-image">
+                                <div class="image-icon">📋</div>
+                                <div class="image-text">Legal Notice</div>
+                            </div>
+                        </div>
+                        <div class="gallery-content">
+                            <h4>Immense Value of Legal Notice</h4>
+                            <p>Understanding the importance of proper legal documentation</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in stagger-2">
+                    <div class="gallery-card">
+                        <div class="gallery-image">
+                            <div class="placeholder-image">
+                                <div class="image-icon">⚖️</div>
+                                <div class="image-text">Rule of Law</div>
+                            </div>
+                        </div>
+                        <div class="gallery-content">
+                            <h4>Legal Framework</h4>
+                            <p>Economic Recovery, Access to Public Services, Safety & Security</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in stagger-3">
+                    <div class="gallery-card">
+                        <div class="gallery-image">
+                            <div class="placeholder-image">
+                                <div class="image-icon">🤝</div>
+                                <div class="image-text">Contract Law</div>
+                            </div>
+                        </div>
+                        <div class="gallery-content">
+                            <h4>Contract Principles</h4>
+                            <p>Offer and Acceptance, Consideration, Common Law Principles</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="enquiry-section">
+            <h2 class="section-title">Get in Touch</h2>
+            <div class="enquiry-card fade-in stagger-1">
+                <form class="enquiry-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Enter full name" class="form-input" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="tel" placeholder="Enter phone number" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Enter email address" class="form-input" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Enter message" class="form-textarea" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="send-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="map-section">
+            <h2 class="section-title">Find Us</h2>
+            <div class="map-card fade-in stagger-1">
+                <div class="map-placeholder">
+                    <div class="map-icon">🗺️</div>
+                    <div class="map-text">Interactive Map</div>
+                    <div class="map-location">📍 Behbani Complex, Sharq, Kuwait</div>
+                </div>
+                <div class="map-actions">
+                    <button class="map-btn">Get Directions</button>
+                    <button class="map-btn">View Larger Map</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-actions">
+            <button class="bottom-btn">💾 Save Contact</button>
+            <button class="bottom-btn">📤 Share</button>
+        </div>
+    </div>
+
+    <script>
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add click effects
+        document.querySelectorAll('.action-btn, .service-card, .contact-item').forEach(element => {
+            element.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+
+        // Add phone number click functionality
+        document.querySelectorAll('.contact-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const text = this.querySelector('.contact-text').textContent;
+                if (text.includes('+965')) {
+                    window.open(`tel:${text}`, '_self');
+                } else if (text.includes('@')) {
+                    window.open(`mailto:${text}`, '_self');
+                }
+            });
+        });
+
+        // Copy bank details functionality
+        function copyBankDetails() {
+            const bankDetails = `
+Account Holder: Shahid Ali
+Account Number: 01234567890
+IBAN: IBAN00000123
+Bank Name: CBK
+            `.trim();
+            
+            navigator.clipboard.writeText(bankDetails).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                const originalText = btn.textContent;
+                btn.textContent = '✅ Copied!';
+                btn.style.background = 'linear-gradient(135deg, #16a34a 0%, #22c55e 100%)';
+                
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = 'linear-gradient(135deg, #059669 0%, #10b981 100%)';
+                }, 2000);
+            }).catch(() => {
+                alert('Bank details copied to clipboard!');
+            });
+        }
+
+        // Form submission
+        document.querySelector('.enquiry-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = document.querySelector('.send-btn');
+            const originalText = btn.textContent;
+            
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                btn.textContent = '✅ Message Sent!';
+                btn.style.background = 'linear-gradient(135deg, #16a34a 0%, #22c55e 100%)';
+                
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                    btn.disabled = false;
+                    this.reset();
+                }, 3000);
+            }, 1500);
+        });
+
+        // Set current time status
+        function updateBusinessStatus() {
+            const now = new Date();
+            const hour = now.getHours();
+            const statusIndicator = document.querySelector('.availability-indicator');
+            
+            if (hour >= 9 && hour < 21) {
+                statusIndicator.innerHTML = '<div class="status-dot open"></div><span>Currently Open</span>';
+                statusIndicator.style.background = 'rgba(34, 197, 94, 0.1)';
+                statusIndicator.style.color = '#16a34a';
+            } else {
+                statusIndicator.innerHTML = '<div class="status-dot closed"></div><span>Currently Closed</span>';
+                statusIndicator.style.background = 'rgba(239, 68, 68, 0.1)';
+                statusIndicator.style.color = '#dc2626';
+            }
+        }
+
+        // Initialize
+        updateBusinessStatus();
+        setInterval(updateBusinessStatus, 60000); // Update every minute
+    </script>
+</body>
+</html>
